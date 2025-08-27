@@ -69,18 +69,18 @@ flutter:
     - assets/images/mainScreen/img5.jpg
     - assets/images/logo.png
     # 
-    # - assets/images/treatments/Abhyangam.jpg
-    # - assets/images/treatments/face_massage.jpg
-    # - assets/images/treatments/head_massage.jpg
-    # - assets/images/treatments/herbal_facial.webp
-    # - assets/images/treatments/neck_massage.jpg
-    # - assets/images/treatments/SynchronizedBodyMassage.jpg
-    # - assets/images/treatments/shiro-abhyanga.jpg
-    # - assets/images/treatments/AbhyangamWithSteam.jpg
-    # - assets/images/treatments/Padabhyanga.jpeg
-    # - assets/images/treatments/Rejuvenation.jpg
-    # - assets/images/treatments/Revitalization.jpg
-    # - assets/images/treatments/Udhvarthanam.jpg
+    - assets/images/treatments/Abhyangam.jpg
+    - assets/images/treatments/face_massage.jpg
+    - assets/images/treatments/head_massage.jpg
+    - assets/images/treatments/herbal_facial.webp
+    - assets/images/treatments/neck_massage.jpg
+    - assets/images/treatments/SynchronizedBodyMassage.jpg
+    - assets/images/treatments/shiro-abhyanga.jpg
+    - assets/images/treatments/AbhyangamWithSteam.jpg
+    - assets/images/treatments/Padabhyanga.jpeg
+    - assets/images/treatments/Rejuvenation.jpg
+    - assets/images/treatments/Revitalization.jpg
+    - assets/images/treatments/Udhvarthanam.jpg
 
     
 

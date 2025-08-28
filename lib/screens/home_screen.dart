@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       height: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('images/mainScreen/img1.png'),
+          image: AssetImage('assets/images/mainScreen/img1.png'),
           fit: BoxFit.cover,
         ),
       ),

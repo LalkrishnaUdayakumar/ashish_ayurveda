@@ -9,6 +9,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/herbal_facial.webp",
     backgroundColor: Colors.green.shade100,
   ),
+  //1
+  InstructorModel(
+    name: "Arthritis",
+    description:
+        "Ayurveda treats arthritis with therapies like Abhyangam (oil massage), Swedana (sudation), Panchakarma detox, and herbal medicines to reduce pain, inflammation, and stiffness.",
+    imageUrl: "assets/images/disease/arthritis.png",
+    backgroundColor: Colors.green.shade100,
+  ),
+  //
   InstructorModel(
     name: "Head, Neck, and Back Massage",
     description:
@@ -16,6 +25,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/neck_massage.jpg",
     backgroundColor: Colors.orange.shade100,
   ),
+  //2
+  InstructorModel(
+    name: "Bala Chikitsa",
+    description:
+        "Bala Chikitsa in Ayurveda focuses on child health care. Treatments include herbal remedies, dietary guidelines, and therapies to improve immunity, digestion, and overall growth.",
+    imageUrl: "assets/images/disease/bala_chiklsa.png",
+    backgroundColor: Colors.blue.shade100,
+  ),
+  //
   InstructorModel(
     name: "Back Massage",
     description:
@@ -23,6 +41,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/head_massage.jpg",
     backgroundColor: Colors.purple.shade100,
   ),
+  //3
+  InstructorModel(
+    name: "Chronic Cough",
+    description:
+        "Ayurveda manages chronic cough with herbal decoctions, steam inhalation, medicated ghee, and lifestyle changes to balance Kapha and strengthen respiratory health.",
+    imageUrl: "assets/images/disease/chronic_cough.png",
+    backgroundColor: Colors.orange.shade100,
+  ),
+  //
   InstructorModel(
     name: "Face Massage",
     description:
@@ -30,6 +57,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/face_massage.jpg",
     backgroundColor: Colors.pink.shade100,
   ),
+  //4
+  InstructorModel(
+    name: "Chronic Headache",
+    description:
+        "Ayurvedic therapies like Shirodhara, Nasya, and herbal oils are used to relieve chronic headaches by balancing doshas, reducing stress, and improving nervous system health.",
+    imageUrl: "assets/images/disease/chronic_headake.png",
+    backgroundColor: Colors.purple.shade100,
+  ),
+  //
   InstructorModel(
     name: "Abhyangam",
     description:
@@ -37,6 +73,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/Abhyangam.jpg",
     backgroundColor: Colors.teal.shade100,
   ),
+  //5
+  InstructorModel(
+    name: "Fracture",
+    description:
+        "Ayurveda aids fracture healing with external applications of herbal pastes, bone-strengthening medicines, and therapies that support natural bone union and pain relief.",
+    imageUrl: "assets/images/disease/fracture.png",
+    backgroundColor: Colors.brown.shade100,
+  ),
+  //
   InstructorModel(
     name: "Abhyangam with Steam",
     description:
@@ -44,6 +89,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/AbhyangamWithSteam.jpg",
     backgroundColor: Colors.blue.shade100,
   ),
+  //6
+  InstructorModel(
+    name: "Marma Treatment",
+    description:
+        "Marma Chikitsa uses stimulation of vital energy points to restore balance, relieve pain, and promote healing of both physical and mental conditions.",
+    imageUrl: "assets/images/disease/marma_treatment.png",
+    backgroundColor: Colors.teal.shade100,
+  ),
+  //
   InstructorModel(
     name: "Synchronized Body Massage",
     description:
@@ -51,13 +105,30 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/SynchronizedBodyMassage.jpg",
     backgroundColor: Colors.amber.shade100,
   ),
+  //7
+  InstructorModel(
+    name: "Panchakarma",
+    description:
+        "A holistic detox therapy involving five purification procedures that remove toxins, balance doshas, and rejuvenate body and mind.",
+    imageUrl: "assets/images/disease/panchakarma.png",
+    backgroundColor: Colors.red.shade100,
+  ),
+  //
   InstructorModel(
     name: "Sirobhayanga",
     description:
         "A scalp, neck, and shoulder massage with herbal oils. Improves hair health, calms the mind, and relieves mental fatigue.",
     imageUrl: "assets/images/treatments/shiro-abhyanga.jpg",
     backgroundColor: Colors.lime.shade100,
+  ), //8
+  InstructorModel(
+    name: "Piles & Fistula",
+    description:
+        "Ayurveda manages piles and fistula with Ksharasutra therapy, herbal medicines, dietary regulation, and Sitz baths to reduce pain and promote healing.",
+    imageUrl: "assets/images/disease/piles_fistula.png",
+    backgroundColor: Colors.indigo.shade100,
   ),
+  //
   InstructorModel(
     name: "Padabhyanga",
     description:
@@ -65,6 +136,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/Padabhyanga.jpeg",
     backgroundColor: Colors.red.shade100,
   ),
+  //9
+  InstructorModel(
+    name: "Psoriasis",
+    description:
+        "Ayurvedic treatments like Panchakarma, medicated oils, herbal remedies, and dietary control help detoxify the body and manage psoriasis symptoms naturally.",
+    imageUrl: "assets/images/disease/psoriasis.png",
+    backgroundColor: Colors.cyan.shade100,
+  ),
+  //
   InstructorModel(
     name: "Rejuvenation Massage",
     description:
@@ -72,6 +152,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/Rejuvenation.jpg",
     backgroundColor: Colors.cyan.shade100,
   ),
+  //10
+  InstructorModel(
+    name: "Skin Disease",
+    description:
+        "Skin diseases are treated in Ayurveda using blood purification therapies, herbal oils, lepas (pastes), and diet corrections to restore healthy skin.",
+    imageUrl: "assets/images/disease/skin_disease.png",
+    backgroundColor: Colors.pink.shade100,
+  ),
+  //
   InstructorModel(
     name: "Revitalization Massage",
     description:
@@ -79,6 +168,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/treatments/Revitalization.jpg",
     backgroundColor: Colors.indigo.shade100,
   ),
+  //11
+  InstructorModel(
+    name: "Stree Janya Rogam",
+    description:
+        "Ayurveda provides specialized care for women’s health issues like menstrual disorders, infertility, and menopause through herbal medicines, Panchakarma, and lifestyle regulation.",
+    imageUrl: "assets/images/disease/stree_janya_rogam.png",
+    backgroundColor: Colors.lime.shade100,
+  ),
+  //
   InstructorModel(
     name: "Udhvarthanam",
     description:

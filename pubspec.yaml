@@ -89,6 +89,18 @@ flutter:
     - assets/images/treatments/Nasyam.jpg
     - assets/images/treatments/VettiverScrubMassage.jpg
     - assets/images/treatments/FruitMassage.jpg
+    - assets/images/disease/arthritis.png
+    - assets/images/disease/bala_chiklsa.png
+    - assets/images/disease/chronic_cough.png
+    - assets/images/disease/chronic_headake.png
+    - assets/images/disease/fracture.png
+    - assets/images/disease/marma_treatment.png
+    - assets/images/disease/panchakarma.png
+    - assets/images/disease/piles_fistula.png
+    - assets/images/disease/psoriasis.png
+    - assets/images/disease/skin_disease.png
+    - assets/images/disease/stree_janya_rogam.png
+
 
     
 

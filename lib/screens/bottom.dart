@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -19,8 +18,9 @@ class WebsiteFooter extends StatelessWidget {
     super.key,
     this.companyName = "Your Hospital Name",
     this.email = "contact@yourhospital.com",
-    this.phone = "+1 (555) 123-4567",
-    this.address = "123 Medical Center St, City, State 12345",
+    this.phone = "+91 7356905099",
+    this.address =
+        "BETHSAIDA, OPPOSITE MULLUVILA POST OFFICE, TRIVANDRUM, KERALA, 695133",
     this.backgroundColor = const Color(0xFF2C3E50),
     this.textColor = Colors.white,
     this.linkColor = const Color(0xFF3498DB),
@@ -64,27 +64,28 @@ class WebsiteFooter extends StatelessWidget {
 
                 if (isDesktop) {
                   return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       // Company info section with logo
                       Expanded(flex: 2, child: _buildCompanySection()),
                       const SizedBox(width: 40),
+                      Spacer(),
                       // Contact info section
                       Expanded(flex: 2, child: _buildContactSection()),
-                      const SizedBox(width: 40),
-                      // Quick links section
-                      Expanded(flex: 1, child: _buildQuickLinksSection()),
+                      // const SizedBox(width: 40),
+                      // // Quick links section
+                      // Expanded(flex: 1, child: _buildQuickLinksSection()),
                     ],
                   );
                 } else {
                   return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       _buildCompanySection(),
                       const SizedBox(height: 30),
                       _buildContactSection(),
-                      const SizedBox(height: 30),
-                      _buildQuickLinksSection(),
+                      // const SizedBox(height: 30),
+                      // _buildQuickLinksSection(),
                     ],
                   );
                 }
@@ -136,7 +137,7 @@ class WebsiteFooter extends StatelessWidget {
               ),
               child: ClipOval(
                 child: Image.asset(
-                  'images/logo.png',
+                  'assets/images/logo.png',
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     // Fallback hospital icon if logo fails to load
@@ -208,11 +209,11 @@ class WebsiteFooter extends StatelessWidget {
         const SizedBox(height: 10),
         _buildContactItem(icon: Icons.location_on, text: address, onTap: null),
         const SizedBox(height: 10),
-        _buildContactItem(
-          icon: Icons.access_time,
-          text: "Emergency: 24/7 Available",
-          onTap: null,
-        ),
+        // _buildContactItem(
+        //   icon: Icons.access_time,
+        //   text: "Emergency: 24/7 Available",
+        //   onTap: null,
+        // ),
       ],
     );
   }

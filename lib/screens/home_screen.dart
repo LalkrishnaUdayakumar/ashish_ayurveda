@@ -86,23 +86,32 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     }
   }
 
+  // Helper method to determine if device is mobile
+  bool _isMobile(BuildContext context) {
+    return MediaQuery.of(context).size.width < 600;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = _isMobile(context);
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double containerHeight = isMobile ? screenHeight * 0.7 : screenHeight;
+
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
+      height: containerHeight,
       child: Stack(
         children: [
           // Enhanced Background with Gradient Overlay
           _buildBackground(),
 
           // Modern Navigation Bar
-          _buildNavigationBar(),
+          _buildNavigationBar(isMobile),
 
-          // Main Content
-          _buildMainContent(),
+          // Main Content - Now responsive
+          _buildMainContent(isMobile),
 
           // Floating Action Elements
-          _buildFloatingElements(),
+          if (!isMobile) _buildFloatingElements(),
         ],
       ),
     );
@@ -116,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         image: DecorationImage(
           image: AssetImage('assets/images/mainScreen/img1.png'),
           fit: BoxFit.cover,
+          alignment: Alignment.center,
         ),
       ),
       child: Container(
@@ -134,13 +144,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildNavigationBar() {
+  Widget _buildNavigationBar(bool isMobile) {
     return Positioned(
       top: 0,
       left: 0,
       right: 0,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: EdgeInsets.symmetric(
+          horizontal: isMobile ? 16 : 30,
+          vertical: isMobile ? 10 : 20,
+        ),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -148,14 +161,150 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             colors: [Colors.black.withOpacity(0.3), Colors.transparent],
           ),
         ),
+        child: isMobile ? _buildMobileNavigation() : _buildDesktopNavigation(),
+      ),
+    );
+  }
+
+  Widget _buildMobileNavigation() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        // Centered Mobile Logo
+        _buildMobileLogo(),
+
+        // Mobile Menu Button (centered)
+        _buildMobileMenuButton(),
+      ],
+    );
+  }
+
+  Widget _buildDesktopNavigation() {
+    return Row(
+      children: [
+        // Logo Section
+        _buildLogo(),
+        const Spacer(),
+        // Navigation Items
+        _buildNavigationItems(),
+      ],
+    );
+  }
+
+  Widget _buildMobileLogo() {
+    return FadeTransition(
+      opacity: _fadeAnimation,
+      child: InkWell(
+        onTap: () => _handleNavigation('Home'),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo Section
-            _buildLogo(),
-            const Spacer(),
-            // Navigation Items
-            _buildNavigationItems(),
+            Container(
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: Colors.white.withOpacity(0.3),
+                  width: 2,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.green.withOpacity(0.3),
+                    blurRadius: 12,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: Image.asset(
+                'assets/images/logo.png',
+                width: 50,
+                height: 50,
+                fit: BoxFit.cover,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'ASHISH',
+                  style: GoogleFonts.lato(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 2.0,
+                    shadows: [
+                      Shadow(
+                        offset: const Offset(0, 1),
+                        blurRadius: 3,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  'Ayurveda Hospital',
+                  style: GoogleFonts.inter(
+                    fontSize: 12,
+                    color: Colors.white70,
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 1.0,
+                  ),
+                ),
+              ],
+            ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMobileMenuButton() {
+    return FadeTransition(
+      opacity: _fadeAnimation,
+      child: Center(
+        child: PopupMenuButton<String>(
+          onSelected: _handleNavigation,
+          icon: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white.withOpacity(0.1),
+              border: Border.all(color: Colors.white.withOpacity(0.2)),
+            ),
+            child: const Icon(Icons.menu, color: Colors.white, size: 20),
+          ),
+          itemBuilder: (context) => [
+            _buildMobileMenuItem('Home', _activeNavItem == 'Home'),
+            _buildMobileMenuItem('Treatments', _activeNavItem == 'Treatments'),
+            _buildMobileMenuItem('Contact', _activeNavItem == 'Contact'),
+          ],
+          color: Colors.black.withOpacity(0.9),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: Colors.green.withOpacity(0.3)),
+          ),
+        ),
+      ),
+    );
+  }
+
+  PopupMenuItem<String> _buildMobileMenuItem(String title, bool isActive) {
+    return PopupMenuItem<String>(
+      value: title,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: isActive ? Colors.green.withOpacity(0.2) : Colors.transparent,
+        ),
+        child: Text(
+          title,
+          style: GoogleFonts.inter(
+            fontSize: 14,
+            fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+            color: isActive ? Colors.green.shade300 : Colors.white70,
+          ),
         ),
       ),
     );
@@ -266,11 +415,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildMainContent() {
+  Widget _buildMainContent(bool isMobile) {
     return Positioned(
-      top: 180,
-      left: 60,
-      right: 60,
+      top: isMobile ? 120 : 180,
+      left: isMobile ? 16 : 60,
+      right: isMobile ? 16 : 60,
       child: SlideTransition(
         position: _slideAnimation,
         child: FadeTransition(
@@ -280,9 +429,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             children: [
               // Welcome Badge
               Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 8,
+                padding: EdgeInsets.symmetric(
+                  horizontal: isMobile ? 12 : 20,
+                  vertical: isMobile ? 6 : 8,
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
@@ -295,96 +444,40 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 child: Text(
                   'Welcome to Ashish',
                   style: GoogleFonts.inter(
-                    fontSize: 16,
+                    fontSize: isMobile ? 12 : 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.white70,
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: isMobile ? 16 : 30),
 
-              // Main Heading
-              RichText(
-                text: TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Discover the ",
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: 64,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        height: 1.1,
-                      ),
-                    ),
-                    TextSpan(
-                      text: "Power",
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: 64,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green.shade300,
-                        height: 1.1,
-                        shadows: [
-                          Shadow(
-                            offset: const Offset(0, 2),
-                            blurRadius: 8,
-                            color: Colors.green.withOpacity(0.5),
-                          ),
-                        ],
-                      ),
-                    ),
-                    TextSpan(
-                      text: " of\nAyurveda with Our\nTrusted ",
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: 64,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white,
-                        height: 1.1,
-                      ),
-                    ),
-                    TextSpan(
-                      text: "Experts",
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: 64,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green.shade300,
-                        height: 1.1,
-                        shadows: [
-                          Shadow(
-                            offset: const Offset(0, 2),
-                            blurRadius: 8,
-                            color: Colors.green.withOpacity(0.5),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 30),
+              // Main Heading - Responsive
+              _buildMainHeading(isMobile),
+              SizedBox(height: isMobile ? 16 : 30),
 
-              // Subtitle
+              // Subtitle - Responsive
               Container(
-                constraints: const BoxConstraints(maxWidth: 500),
+                constraints: BoxConstraints(
+                  maxWidth: isMobile ? double.infinity : 500,
+                ),
                 child: Text(
                   "Experience ancient wisdom through modern healthcare. Our certified Ayurvedic practitioners blend traditional healing methods with contemporary wellness approaches.",
                   style: GoogleFonts.inter(
-                    fontSize: 14,
+                    fontSize: isMobile ? 12 : 14,
                     color: Colors.white70,
                     height: 1.6,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
-              const SizedBox(height: 50),
+              SizedBox(height: isMobile ? 24 : 50),
 
-              // // Action Buttons
-              // Row(
-              //   children: [
-              //     _buildPrimaryButton(),
-              //     const SizedBox(width: 20),
-              //     _buildSecondaryButton(),
-              //   ],
-              // ),
+              // Add certified badge for mobile at bottom
+              if (isMobile) ...[
+                const SizedBox(height: 30),
+                _buildMobileCertificationBadge(),
+              ],
             ],
           ),
         ),
@@ -392,7 +485,95 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildPrimaryButton() {
+  Widget _buildMainHeading(bool isMobile) {
+    final double fontSize = isMobile ? 28 : 64;
+
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: "Discover the ",
+            style: GoogleFonts.playfairDisplay(
+              fontSize: fontSize,
+              fontWeight: FontWeight.w400,
+              color: Colors.white,
+              height: 1.1,
+            ),
+          ),
+          TextSpan(
+            text: "Power",
+            style: GoogleFonts.playfairDisplay(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.green.shade300,
+              height: 1.1,
+              shadows: [
+                Shadow(
+                  offset: const Offset(0, 2),
+                  blurRadius: 8,
+                  color: Colors.green.withOpacity(0.5),
+                ),
+              ],
+            ),
+          ),
+          TextSpan(
+            text: " of\nAyurveda with Our\nTrusted ",
+            style: GoogleFonts.playfairDisplay(
+              fontSize: fontSize,
+              fontWeight: FontWeight.w400,
+              color: Colors.white,
+              height: 1.1,
+            ),
+          ),
+          TextSpan(
+            text: "Experts",
+            style: GoogleFonts.playfairDisplay(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.green.shade300,
+              height: 1.1,
+              shadows: [
+                Shadow(
+                  offset: const Offset(0, 2),
+                  blurRadius: 8,
+                  color: Colors.green.withOpacity(0.5),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMobileButtons() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: _buildPrimaryButton(isMobile: true),
+        ),
+        const SizedBox(height: 12),
+        SizedBox(
+          width: double.infinity,
+          child: _buildSecondaryButton(isMobile: true),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildDesktopButtons() {
+    return Row(
+      children: [
+        _buildPrimaryButton(),
+        const SizedBox(width: 20),
+        _buildSecondaryButton(),
+      ],
+    );
+  }
+
+  Widget _buildPrimaryButton({bool isMobile = false}) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -413,18 +594,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+          padding: EdgeInsets.symmetric(
+            horizontal: isMobile ? 20 : 30,
+            vertical: isMobile ? 12 : 15,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: isMobile ? MainAxisSize.max : MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'Book Consultation',
               style: GoogleFonts.inter(
-                fontSize: 16,
+                fontSize: isMobile ? 14 : 16,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
               ),
@@ -441,7 +626,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildSecondaryButton() {
+  Widget _buildSecondaryButton({bool isMobile = false}) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -453,13 +638,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+          padding: EdgeInsets.symmetric(
+            horizontal: isMobile ? 20 : 30,
+            vertical: isMobile ? 12 : 15,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: isMobile ? MainAxisSize.max : MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
               Icons.play_circle_outline,
@@ -470,9 +659,38 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             Text(
               'Watch Video',
               style: GoogleFonts.inter(
-                fontSize: 16,
+                fontSize: isMobile ? 14 : 16,
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMobileCertificationBadge() {
+    return FadeTransition(
+      opacity: _fadeAnimation,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white.withOpacity(0.1),
+          border: Border.all(color: Colors.white.withOpacity(0.2), width: 1),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.verified, color: Colors.green.shade300, size: 14),
+            const SizedBox(width: 6),
+            Text(
+              'Certified Ayurvedic Center',
+              style: GoogleFonts.inter(
+                fontSize: 10,
+                color: Colors.white70,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ],

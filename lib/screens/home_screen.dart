@@ -185,7 +185,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ],
               ),
               child: Image.asset(
-                'images/logo.png',
+                'assets/images/logo.png',
                 width: 50,
                 height: 50,
                 fit: BoxFit.cover,
@@ -197,8 +197,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               children: [
                 Text(
                   'ASHISH',
-                  style: GoogleFonts.playfairDisplay(
-                    fontSize: 28,
+                  style: GoogleFonts.lato(
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     letterSpacing: 3,
@@ -242,29 +242,24 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   Widget _buildNavItem(String title, bool isActive) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: InkWell(
-        onTap: () => _handleNavigation(title),
-        borderRadius: BorderRadius.circular(20),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: isActive
-                ? Colors.green.withOpacity(0.2)
-                : Colors.transparent,
-            border: isActive
-                ? Border.all(color: Colors.green.withOpacity(0.4), width: 1)
-                : null,
-          ),
-          child: Text(
-            title,
-            style: GoogleFonts.inter(
-              fontSize: 14,
-              fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
-              color: isActive ? Colors.white : Colors.white70,
-            ),
+    return InkWell(
+      onTap: () => _handleNavigation(title),
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: isActive ? Colors.green.withOpacity(0.2) : Colors.transparent,
+          border: isActive
+              ? Border.all(color: Colors.green.withOpacity(0.4), width: 1)
+              : null,
+        ),
+        child: Text(
+          title,
+          style: GoogleFonts.inter(
+            fontSize: 14,
+            fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+            color: isActive ? Colors.white : Colors.white70,
           ),
         ),
       ),

@@ -40,6 +40,16 @@ class WebsiteFooter extends StatelessWidget {
     }
   }
 
+  Future<void> _launchLoaction() async {
+    final Uri locationUri = Uri(
+      scheme: 'mailto',
+      path: 'https://maps.app.goo.gl/AdyKeEvQ4psmHk9u5?g_st=iw',
+    );
+    if (!await launchUrl(locationUri)) {
+      throw Exception('Could not launch loaction');
+    }
+  }
+
   Future<void> _launchPhone() async {
     final Uri phoneUri = Uri(scheme: 'tel', path: phone);
     if (!await launchUrl(phoneUri)) {
@@ -207,7 +217,11 @@ class WebsiteFooter extends StatelessWidget {
         const SizedBox(height: 10),
         _buildContactItem(icon: Icons.phone, text: phone, onTap: _launchPhone),
         const SizedBox(height: 10),
-        _buildContactItem(icon: Icons.location_on, text: address, onTap: null),
+        _buildContactItem(
+          icon: Icons.location_on,
+          text: address,
+          onTap: _launchLoaction,
+        ),
         const SizedBox(height: 10),
         // _buildContactItem(
         //   icon: Icons.access_time,

@@ -189,7 +189,7 @@ class WebsiteFooter extends StatelessWidget {
         ),
         const SizedBox(height: 15),
         Text(
-          "Providing exceptional healthcare services with compassion and excellence. Your health and wellbeing are our top priority.",
+          "Providing exceptional healthcare services with compassion and excellence. Your health and wellbeing are our top priority. \nOur Vaidyar belongs to the erstwhile Travancore Maharaja's palace physicians (Raja Vaidyar) family",
           style: TextStyle(
             fontSize: 14,
             color: textColor.withOpacity(0.8),

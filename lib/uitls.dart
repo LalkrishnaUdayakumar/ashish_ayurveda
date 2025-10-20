@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 final List<InstructorModel> sampleInstructors = [
   InstructorModel(
-    name: "Herbal Facial",
+    name: "Piles & Fistula",
     description:
-        "A deeply nourishing facial treatment using fresh herbal oils and natural creams prepared from fruits and pods. This therapy restores the skin’s natural glow, improves texture, and leaves you feeling refreshed inside and out.",
-    imageUrl: "assets/images/treatments/herbal_facial.webp",
-    backgroundColor: Colors.green.shade100,
+        "Ayurveda manages piles and fistula with Ksharasutra therapy, herbal medicines, dietary regulation, and Sitz baths to reduce pain and promote healing.",
+    imageUrl: "assets/images/disease/piles_fistula.png",
+    backgroundColor: Colors.indigo.shade100,
   ),
   //1
   InstructorModel(
@@ -17,14 +17,15 @@ final List<InstructorModel> sampleInstructors = [
     imageUrl: "assets/images/disease/arthritis.png",
     backgroundColor: Colors.green.shade100,
   ),
-  //
   InstructorModel(
-    name: "Head, Neck, and Back Massage",
+    name: "Fracture",
     description:
-        "A soothing massage with warm medicinal oils, focusing on the head, neck, and upper back. Relieves tension, reduces headaches, and improves blood circulation for a light, relaxed feeling.",
-    imageUrl: "assets/images/treatments/neck_massage.jpg",
-    backgroundColor: Colors.orange.shade100,
+        "Ayurveda aids fracture healing with external applications of herbal pastes, bone-strengthening medicines, and therapies that support natural bone union and pain relief.",
+    imageUrl: "assets/images/disease/fracture.png",
+    backgroundColor: Colors.brown.shade100,
   ),
+  //
+
   //2
   InstructorModel(
     name: "Bala Chikitsa",
@@ -34,13 +35,7 @@ final List<InstructorModel> sampleInstructors = [
     backgroundColor: Colors.blue.shade100,
   ),
   //
-  InstructorModel(
-    name: "Back Massage",
-    description:
-        "A therapeutic oil massage that eases stiffness and melts away fatigue. Ideal for relieving stress stored in the back muscles and improving overall flexibility.",
-    imageUrl: "assets/images/treatments/head_massage.jpg",
-    backgroundColor: Colors.purple.shade100,
-  ),
+
   //3
   InstructorModel(
     name: "Chronic Cough",
@@ -48,6 +43,13 @@ final List<InstructorModel> sampleInstructors = [
         "Ayurveda manages chronic cough with herbal decoctions, steam inhalation, medicated ghee, and lifestyle changes to balance Kapha and strengthen respiratory health.",
     imageUrl: "assets/images/disease/chronic_cough.png",
     backgroundColor: Colors.orange.shade100,
+  ),
+  InstructorModel(
+    name: "Back Massage",
+    description:
+        "A therapeutic oil massage that eases stiffness and melts away fatigue. Ideal for relieving stress stored in the back muscles and improving overall flexibility.",
+    imageUrl: "assets/images/treatments/head_massage.jpg",
+    backgroundColor: Colors.purple.shade100,
   ),
   //
   InstructorModel(
@@ -75,11 +77,11 @@ final List<InstructorModel> sampleInstructors = [
   ),
   //5
   InstructorModel(
-    name: "Fracture",
+    name: "Herbal Facial",
     description:
-        "Ayurveda aids fracture healing with external applications of herbal pastes, bone-strengthening medicines, and therapies that support natural bone union and pain relief.",
-    imageUrl: "assets/images/disease/fracture.png",
-    backgroundColor: Colors.brown.shade100,
+        "A deeply nourishing facial treatment using fresh herbal oils and natural creams prepared from fruits and pods. This therapy restores the skin’s natural glow, improves texture, and leaves you feeling refreshed inside and out.",
+    imageUrl: "assets/images/treatments/herbal_facial.webp",
+    backgroundColor: Colors.green.shade100,
   ),
   //
   InstructorModel(
@@ -122,11 +124,11 @@ final List<InstructorModel> sampleInstructors = [
     backgroundColor: Colors.lime.shade100,
   ), //8
   InstructorModel(
-    name: "Piles & Fistula",
+    name: "Head, Neck, and Back Massage",
     description:
-        "Ayurveda manages piles and fistula with Ksharasutra therapy, herbal medicines, dietary regulation, and Sitz baths to reduce pain and promote healing.",
-    imageUrl: "assets/images/disease/piles_fistula.png",
-    backgroundColor: Colors.indigo.shade100,
+        "A soothing massage with warm medicinal oils, focusing on the head, neck, and upper back. Relieves tension, reduces headaches, and improves blood circulation for a light, relaxed feeling.",
+    imageUrl: "assets/images/treatments/neck_massage.jpg",
+    backgroundColor: Colors.orange.shade100,
   ),
   //
   InstructorModel(

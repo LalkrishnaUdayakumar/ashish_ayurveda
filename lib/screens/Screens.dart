@@ -64,11 +64,10 @@ class _ScreensState extends State<Screens> {
             Container(
               key: _contactKey,
               child: WebsiteFooter(
-                companyName: "Ashish Ayurveda",
-                email: "ashishayurveda@gmail.com",
-                phone: "+91 735 690 5099",
-                address:
-                    "Bethsaida, Opposite Mulluvila Post Office, Trivandrum, Kerala, 695133",
+                companyName: companyName,
+                email: companyEmail,
+                phone: companyPhone,
+                address: companyAddress,
                 backgroundColor: Color(0xFF1A252F),
                 textColor: Colors.white,
                 linkColor: Color(0xFF64FFDA),

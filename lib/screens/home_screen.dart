@@ -1,3 +1,6 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:ashish_ayurveda/uitls.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -109,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               width: double.infinity,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/mainScreen/img1.png'),
+                  image: AssetImage(mainScreenImagePath),
                   fit: BoxFit.cover,
                   alignment: Alignment.center,
                 ),
@@ -285,7 +288,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      '+91 1234567890',
+                      companyPhone,
                       style: GoogleFonts.inter(
                         fontSize: 14,
                         color: Colors.white,
@@ -297,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 const SizedBox(height: 12),
 
                 Text(
-                  'info@ashishayurveda.com',
+                  companyEmail,
                   style: GoogleFonts.inter(
                     fontSize: 12,
                     color: Colors.white70,
@@ -307,7 +310,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 const SizedBox(height: 8),
 
                 Text(
-                  'Thiruvananthapuram, Kerala',
+                  companyAddress,
                   style: GoogleFonts.inter(
                     fontSize: 12,
                     color: Colors.white70,
@@ -352,7 +355,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       ),
                     ),
                     child: Image.asset(
-                      'assets/images/logo.png',
+                      logoImagePath,
                       width: 40,
                       height: 40,
                       fit: BoxFit.cover,
@@ -464,7 +467,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       height: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/mainScreen/img1.png'),
+          image: AssetImage(mainScreenImagePath),
           fit: BoxFit.cover,
           alignment: Alignment.center,
         ),
@@ -530,7 +533,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ],
               ),
               child: Image.asset(
-                'assets/images/logo.png',
+                logoImagePath,
                 width: 50,
                 height: 50,
                 fit: BoxFit.cover,
@@ -777,7 +780,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  '+91 1234567890',
+                  companyPhone,
                   style: GoogleFonts.inter(
                     fontSize: 14,
                     color: Colors.white,
@@ -788,7 +791,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
             const SizedBox(height: 8),
             Text(
-              'info@ashishayurveda.com',
+              companyEmail,
               style: GoogleFonts.inter(
                 fontSize: 12,
                 color: Colors.white70,
@@ -797,7 +800,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
             const SizedBox(height: 8),
             Text(
-              'Thiruvananthapuram, Kerala',
+              companyAddress,
               style: GoogleFonts.inter(
                 fontSize: 12,
                 color: Colors.white70,

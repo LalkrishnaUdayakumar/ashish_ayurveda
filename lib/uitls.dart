@@ -1,6 +1,23 @@
 import 'package:ashish_ayurveda/exampl/instructor_model.dart';
 import 'package:flutter/material.dart';
 
+// comapny details
+const String companyName = "Ashish Ayurveda";
+const String companyEmail = "ashishayurveda@gmail.com";
+const String companyPhone = "+91 735 690 5099";
+const String companyAddress =
+    "Bethsaida, Opposite Mulluvila Post Office, Trivandrum, Kerala 695133, India";
+
+// main screen slogon
+const String appSlogon =
+    "Experience authentic Ayurvedic healing with our comprehensive range of treatments. Each therapy is designed to restore balance and promote natural wellness.";
+const String slogon =
+    "Experience ancient wisdom through modern healthcare. Our certified Ayurvedic practitioners blend traditional healing methods with contemporary wellness approaches.";
+
+//image paths
+const String mainScreenImagePath = 'assets/images/mainScreen/img1.png';
+const String logoImagePath = 'assets/images/logo.png';
+// treartment and instructor data
 final List<InstructorModel> sampleInstructors = [
   InstructorModel(
     name: "Piles & Fistula",
